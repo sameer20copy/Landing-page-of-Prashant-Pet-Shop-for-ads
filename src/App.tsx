@@ -13,7 +13,7 @@ declare function gtag(...args: any[]): void;
 const trackCallConversion = () => {
   if (typeof gtag !== 'undefined') {
     gtag('event', 'conversion', {
-      'send_to': 'AW-18129042281/call_conversion', // Replace with your actual conversion label
+      'send_to': 'AW-18129042281/Uv6yCOPB-6YcEOn2zMRD', // Replace with your actual conversion label
     });
   }
 };
