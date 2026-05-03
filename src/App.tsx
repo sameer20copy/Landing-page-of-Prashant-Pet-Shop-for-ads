@@ -8,11 +8,11 @@ const PHONE_TEL = "tel:+916390500149";
 const LOCATION = "Gomti Nagar, Lucknow";
 
 const BREEDS = [
-  { name: "Siberian Husky", age: "45 days", price: "Call for Price", img: "../images/husky.jpg" },
-  { name: "Labrador Retriever", age: "42 days", price: "Call for Price", img: "../images/Labrador_Retriever.jpg" },
-  { name: "German Shepherd", age: "48 days", price: "Call for Price", img: "../images/German Shepherd.jpeg" },
-  { name: "Golden Retriever", age: "45 days", price: "Call for Price", img: "../images/Golden Retriver.jpeg" },
-  { name: "Shih Tzu", age: "50 days", price: "Call for Price", img: "../images/Shih Tzu.png" },
+  { name: "Siberian Husky", age: "45 days", price: "Call for Price", img: "/images/husky.jpg" },
+  { name: "Labrador Retriever", age: "42 days", price: "Call for Price", img: "/images/Labrador_Retriever.jpg" },
+  { name: "German Shepherd", age: "48 days", price: "Call for Price", img: "/images/German Shepherd.jpeg" },
+  { name: "Golden Retriever", age: "45 days", price: "Call for Price", img: "/images/Golden Retriver.jpeg" },
+  { name: "Shih Tzu", age: "50 days", price: "Call for Price", img: "/images/Shih Tzu.png" },
 ];
 
 const REVIEWS = [
@@ -41,7 +41,7 @@ export default function App() {
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-2' : 'bg-transparent py-4'}`}>
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <div className="flex flex-col">
-            <img src="../images/logo.png" className='w-15' alt="" />
+            <img src="/images/logo.png" className='w-15' alt="" />
             {/*<span className="font-anton text-xl md:text-2xl text-orange-600 tracking-tighter uppercase leading-none">PRASHANT</span>
             <span className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest leading-none">Pet Shop & Clinic</span>*/}
           </div>
