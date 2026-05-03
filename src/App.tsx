@@ -7,6 +7,17 @@ const PHONE_NUMBER = "+91 6390500149";
 const PHONE_TEL = "tel:+916390500149";
 const LOCATION = "Gomti Nagar, Lucknow";
 
+// ✅ Google Ads Conversion Tracking Function
+declare function gtag(...args: any[]): void;
+
+const trackCallConversion = () => {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18129042281/call_conversion', // Replace with your actual conversion label
+    });
+  }
+};
+
 const BREEDS = [
   { name: "Siberian Husky", age: "45 days", price: "Call for Price", img: "/images/husky.jpg" },
   { name: "Labrador Retriever", age: "42 days", price: "Call for Price", img: "/images/Labrador_Retriever.jpg" },
@@ -42,11 +53,11 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <div className="flex flex-col">
             <img src="/images/logo.png" className='w-15' alt="" />
-            {/*<span className="font-anton text-xl md:text-2xl text-orange-600 tracking-tighter uppercase leading-none">PRASHANT</span>
-            <span className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest leading-none">Pet Shop & Clinic</span>*/}
           </div>
+          {/* ✅ Conversion tracked call button */}
           <a 
             href={PHONE_TEL}
+            onClick={trackCallConversion}
             className="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-full font-bold text-sm transition-transform active:scale-95 shadow-lg shadow-orange-200"
             id="nav-call-btn"
           >
@@ -80,7 +91,7 @@ export default function App() {
             <span className="inline-block px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs font-bold uppercase tracking-widest mb-6 border border-orange-200">
                🐾 #1 Trusted Dog Breeder in Lucknow
             </span>
-            <h1 className="text-4xl md:text-7xl font- anton font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6 max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6 max-w-4xl mx-auto">
               Buy Healthy Puppies in Lucknow – <span className="text-orange-600">Pure Breeds</span> in Gomti Nagar
             </h1>
             <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -88,8 +99,10 @@ export default function App() {
             </p>
 
             <div className="flex flex-col items-center gap-4">
+              {/* ✅ Conversion tracked hero CTA */}
               <a 
                 href={PHONE_TEL}
+                onClick={trackCallConversion}
                 className="group relative flex items-center justify-center gap-3 bg-orange-600 hover:bg-orange-700 text-white w-full max-w-md py-6 rounded-2xl text-2xl font-black transition-all active:scale-95 shadow-2xl shadow-orange-500/30 overflow-hidden"
                 id="hero-main-cta"
               >
@@ -165,8 +178,10 @@ export default function App() {
                   </div>
                   <div className="flex items-center justify-between gap-4">
                     <span className="font-black text-orange-600">{breed.price}</span>
+                    {/* ✅ Conversion tracked card call button */}
                     <a 
                       href={PHONE_TEL}
+                      onClick={trackCallConversion}
                       className="bg-orange-600 hover:bg-orange-700 text-white p-3 rounded-2xl transition-colors active:scale-90"
                     >
                       <Phone size={20} fill="currentColor" />
@@ -180,6 +195,7 @@ export default function App() {
           <div className="mt-16 text-center">
             <a 
               href={PHONE_TEL}
+              onClick={trackCallConversion}
               className="inline-flex items-center gap-2 text-xl font-bold text-slate-900 hover:text-orange-600 transition-colors"
             >
               Don't see your favorite breed? <span className="underline decoration-orange-400 underline-offset-4 flex items-center gap-1">Call & Inquire Now <ChevronRight size={20} /></span>
@@ -269,6 +285,94 @@ export default function App() {
         </div>
       </section>
 
+      {/* ✅ NEW — Google Map Section */}
+      <section className="py-24 bg-white" id="location">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-xs font-bold uppercase tracking-widest mb-4 border border-orange-200">
+              📍 Visit Us
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">Find Us in Gomti Nagar</h2>
+            <p className="text-slate-500 text-lg">Shop No 130, Vineet Khand 2, Gomti Nagar, Lucknow</p>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+            {/* Map Embed */}
+            <div className="flex-1 rounded-3xl overflow-hidden shadow-2xl border border-slate-100 min-h-[400px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.4!2d80.9975!3d26.8467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDUwJzQ4LjEiTiA4MMKwNTknNTEuMCJF!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin&q=Prashant+Pet+Shop+Gomti+Nagar+Lucknow"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: '400px' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Prashant Pet Shop Location"
+              ></iframe>
+            </div>
+
+            {/* Info Card */}
+            <div className="lg:w-80 flex flex-col gap-4">
+              <div className="bg-orange-50 border border-orange-100 rounded-3xl p-8 flex-1">
+                <h3 className="text-xl font-extrabold text-slate-900 mb-6">Visit Our Shop</h3>
+                
+                <div className="space-y-5">
+                  <div className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-2xl bg-orange-600 flex items-center justify-center shrink-0">
+                      <MapPin size={18} className="text-white" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-slate-900 text-sm">Address</p>
+                      <p className="text-slate-500 text-sm leading-relaxed">Shop No 130, Vineet Khand 2,<br/>Gomti Nagar, Lucknow, UP</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-2xl bg-orange-600 flex items-center justify-center shrink-0">
+                      <Phone size={18} className="text-white" fill="currentColor" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-slate-900 text-sm">Phone</p>
+                      <a href={PHONE_TEL} onClick={trackCallConversion} className="text-orange-600 font-bold text-sm hover:underline">{PHONE_NUMBER}</a>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-2xl bg-orange-600 flex items-center justify-center shrink-0">
+                      <CheckCircle2 size={18} className="text-white" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-slate-900 text-sm">Timings</p>
+                      <p className="text-slate-500 text-sm">24x7 Any Time you Want</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Get Directions Button */}
+              <a
+                href="https://maps.app.goo.gl/4KTJaUWQ78Ncqj7T7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white py-4 px-6 rounded-2xl font-bold transition-colors"
+              >
+                <MapPin size={18} />
+                Get Directions on Google Maps
+              </a>
+
+              <a
+                href={PHONE_TEL}
+                onClick={trackCallConversion}
+                className="flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white py-4 px-6 rounded-2xl font-bold transition-colors"
+              >
+                <Phone size={18} fill="currentColor" />
+                Call Before You Visit
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final Urgency Call to Action */}
       <section className="py-24 bg-orange-600 relative overflow-hidden" id="cta-bottom">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -288,8 +392,10 @@ export default function App() {
             Call today to check the current availability and get the latest prices for your favorite breed in Lucknow.
           </p>
 
+          {/* ✅ Conversion tracked bottom CTA */}
           <a 
             href={PHONE_TEL}
+            onClick={trackCallConversion}
             className="inline-flex items-center gap-4 bg-white text-orange-600 hover:bg-slate-100 px-12 py-6 rounded-full text-3xl font-black transition-all active:scale-95 shadow-2xl mb-6"
             id="bottom-call-btn"
           >
@@ -313,7 +419,7 @@ export default function App() {
             <span className="text-slate-400 text-sm mt-1">© {new Date().getFullYear()} All Rights Reserved. Lucknow's Premier Dog Breeder.</span>
           </div>
           <div className="flex items-center gap-8">
-             <a href={PHONE_TEL} className="text-slate-900 font-bold hover:text-orange-600 transition-colors">Call: {PHONE_NUMBER}</a>
+             <a href={PHONE_TEL} onClick={trackCallConversion} className="text-slate-900 font-bold hover:text-orange-600 transition-colors">Call: {PHONE_NUMBER}</a>
              <span className="text-slate-300">|</span>
              <address className="not-italic text-slate-500 text-sm">Gomti Nagar, Lucknow, India</address>
           </div>
@@ -329,8 +435,10 @@ export default function App() {
             exit={{ y: 100 }}
             className="fixed bottom-0 left-0 right-0 z-[60] bg-white p-4 border-t border-slate-100 shadow-[0_-10px_30px_rgba(0,0,0,0.1)] md:hidden"
           >
+            {/* ✅ Conversion tracked sticky mobile button */}
             <a 
               href={PHONE_TEL}
+              onClick={trackCallConversion}
               className="flex items-center justify-center gap-3 bg-red-600 text-white w-full py-5 rounded-2xl text-2xl font-black shadow-xl animate-bounce-subtle"
               id="sticky-mobile-call"
             >
