@@ -10,9 +10,9 @@ const LOCATION = "Gomti Nagar, Lucknow";
 const BREEDS = [
   { name: "Siberian Husky", age: "45 days", price: "Call for Price", img: "/images/husky.jpg" },
   { name: "Labrador Retriever", age: "42 days", price: "Call for Price", img: "/images/Labrador_Retriever.jpg" },
-  { name: "German Shepherd", age: "48 days", price: "Call for Price", img: "/images/German Shepherd.jpeg" },
-  { name: "Golden Retriever", age: "45 days", price: "Call for Price", img: "/images/Golden Retriver.jpeg" },
-  { name: "Shih Tzu", age: "50 days", price: "Call for Price", img: "/images/Shih Tzu.png" },
+  { name: "German Shepherd", age: "48 days", price: "Call for Price", img: "/images/German-Shepherd.jpeg" },
+  { name: "Golden Retriever", age: "45 days", price: "Call for Price", img: "/images/Golden-Retriver.jpeg" },
+  { name: "Shih Tzu", age: "50 days", price: "Call for Price", img: "/images/Shih-Tzu.png" },
 ];
 
 const REVIEWS = [
